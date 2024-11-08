@@ -28,7 +28,7 @@ public class Student {
         System.out.println("familyMemberNums is " + familyMemberNums);
     }
 
-    protected void printInterests(String[] interests) {
+    void printInterests(String[] interests) {
         for (String interest : interests) {
             System.out.println(interest);
         }

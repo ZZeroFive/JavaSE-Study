@@ -6,6 +6,6 @@ public class SemStudent extends Student {
 
     public static void main(String[] args) {
         SemStudent student = new SemStudent();
-        student.printInterests(new String[]{});
+        // student.printInterests(new String[]{});
     }
 }
