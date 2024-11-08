@@ -6,7 +6,7 @@ public class Student {
 
     private Integer age;
 
-    private int sClass = 1;
+    private int familyMemberNums = 3;
 
 
     @Override
@@ -14,12 +14,29 @@ public class Student {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", sClass=" + sClass +
+                ", familyMemberNums=" + familyMemberNums +
                 '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        System.out.println("name is " + name);
+    }
+
+    public void setFamilyMemberNums(int familyMemberNums) {
+        this.familyMemberNums = familyMemberNums;
+        System.out.println("familyMemberNums is " + familyMemberNums);
     }
 
     public static void main(String[] args) {
         Student s = new Student();
+        System.out.println(s);
+
+        s.setName(null);
+        System.out.println(s);
+
+        // compile error
+        // s.setFamilyMemberNums(null);
         System.out.println(s);
     }
 
