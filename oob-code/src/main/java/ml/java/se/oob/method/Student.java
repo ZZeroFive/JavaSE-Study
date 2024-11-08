@@ -28,6 +28,12 @@ public class Student {
         System.out.println("familyMemberNums is " + familyMemberNums);
     }
 
+    public void printInterests(String[] interests) {
+        for (String interest : interests) {
+            System.out.println(interest);
+        }
+    }
+
     public static void main(String[] args) {
         Student s = new Student();
         System.out.println(s);
@@ -38,6 +44,10 @@ public class Student {
         // compile error
         // s.setFamilyMemberNums(null);
         System.out.println(s);
+
+
+        // s.printInterests(null);
+        s.printInterests(new String[]{});
     }
 
 }
