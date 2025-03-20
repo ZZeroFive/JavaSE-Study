@@ -26,9 +26,9 @@ public class InstanceableAttr<T> {
      * @param t
      * @return
      */
-    public boolean equals(T t) {
+    /*public boolean equals(T t) {
         return false;
-    }
+    }*/
 
     public static void main(String[] args) {
         InstanceableAttr<String> i = new InstanceableAttr<>(String.class);
