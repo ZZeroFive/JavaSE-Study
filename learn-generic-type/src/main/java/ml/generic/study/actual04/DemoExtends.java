@@ -53,6 +53,8 @@ public class DemoExtends {
     public static <T extends Number> void setPair(Pair<T> pair, T first, T second) {
         pair.setFirst(first);
         pair.setSecond(second);
+        // 无法通过编译
+        // pair.setFirst(new Integer(first.intValue()));
         System.out.println(pair.getFirst().intValue() + pair.getSecond().intValue());
     }
 
