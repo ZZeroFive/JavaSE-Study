@@ -49,9 +49,23 @@ public class DemoExtends {
         addPair2(iPair);
     }
 
-    public static void main(String[] args) {
-        demo01();
-        demo02();
+    // 获取泛型成员属性值
+    public static <T extends Number> void setPair(Pair<T> pair, T first, T second) {
+        pair.setFirst(first);
+        pair.setSecond(second);
+        System.out.println(pair.getFirst().intValue() + pair.getSecond().intValue());
+    }
 
+    public static void demo03() {
+        Pair<Double> dPair = new Pair<>();
+        Double first = new Double(123.45);
+        Double second = new Double(123.45);
+        setPair(dPair, first, second);
+    }
+
+    public static void main(String[] args) {
+        // demo01();
+        // demo02();
+        demo03();
     }
 }
