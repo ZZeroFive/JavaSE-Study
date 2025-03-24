@@ -65,9 +65,49 @@ public class DemoExtends {
         setPair(dPair, first, second);
     }
 
+    /**
+     * 指定泛型参数是Integer 或者 Integer的父类
+     */
+    public static void getPair(Pair<? super Integer> pair) {
+        // 无法使用Integer接受 因为如果泛型参数是Integer父类，那么下面代码就有问题
+        // Integer n = pair.getFirst();
+        // 正确的应该使用Object接受
+        Object first = pair.getFirst();
+        // 不允许获取泛型属性的引用，即： T obj = pair.getObj();
+        System.out.println(first);
+    }
+
+    public static void demo04() {
+        Pair<Number> p = new Pair<>();
+        p.setFirst(new Integer(1));
+        p.setSecond(new Integer(2));
+        getPair(p);
+    }
+
+    public static void setPair(Pair<? super Integer> pair) {
+        // 传递的是Integer类型  因此没有出现编译错误
+        pair.setFirst(1);
+        // 传递的是Double类型 所以就出现错误了
+        // pair.setFirst(1.1);
+        // Number n1 = new Integer(23);
+        // pair.setFirst(n1);
+
+        Integer n2 = new Integer(1);
+        pair.setFirst(n2);
+        pair.setSecond(2);
+        System.out.println(pair.getFirst() + " " + pair.getSecond());
+    }
+
+    public static void demo05() {
+        Pair<Integer> pair = new Pair<>();
+        setPair(pair);
+    }
+
     public static void main(String[] args) {
         // demo01();
         // demo02();
-        demo03();
+        // demo03();
+        // demo04();
+        demo05();
     }
 }
