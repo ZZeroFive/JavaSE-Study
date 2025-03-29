@@ -1,9 +1,6 @@
 package api.basic.study.newdate;
 
-import sun.util.resources.LocaleData;
-
 import java.time.*;
-import java.util.Locale;
 
 public class DemoNewDateApi {
 
@@ -55,9 +52,32 @@ public class DemoNewDateApi {
         System.out.println("纽约时间 " + newYorkTime);
 
     }
+    // ZonedDateTime计算时间
+    public static void demoZonedDateTimeCalcTime() {
+        Instant instant = Instant.now();
+        ZonedDateTime chinaDateTime = instant.atZone(ZoneId.of("UTC+08:00"));
+        ZonedDateTime westTime = instant.atZone(ZoneId.of("UTC-08:00"));
+        System.out.println("东八区当前时间 " + chinaDateTime);
+        System.out.println("西八区当前时间 " + westTime);
+
+        // 比较时间
+        System.out.println(chinaDateTime.compareTo(westTime));
+        // 相同时间定义：日期、时间、时区都需要相同
+        System.out.println(chinaDateTime.equals(westTime));
+        System.out.println(chinaDateTime.toEpochSecond() == westTime.toEpochSecond());
+
+        // 加减时间
+        System.out.println(chinaDateTime.plus(Duration.ofSeconds(60)));
+        System.out.println(westTime.plus(Duration.ofSeconds(60)));
+
+        // 自动换算日期 当前时间是2025-03-29 加3天成为4.1
+        System.out.println(chinaDateTime.plusDays(3));
+
+    }
 
     public static void main(String[] args) throws InterruptedException {
         // demoEpochTime();
-        demoZonedDateTme();
+        // demoZonedDateTme();
+        demoZonedDateTimeCalcTime();
     }
 }
