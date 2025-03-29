@@ -1,7 +1,9 @@
 package api.basic.study.newdate;
 
-import java.time.Duration;
-import java.time.Instant;
+import sun.util.resources.LocaleData;
+
+import java.time.*;
+import java.util.Locale;
 
 public class DemoNewDateApi {
 
@@ -30,7 +32,32 @@ public class DemoNewDateApi {
         System.out.println(instant1.plus(Duration.ofSeconds(10)).toEpochMilli());
     }
 
+    /**
+     * Instant + Zone 信息 ===> ZonedTimeInstant
+     * ZonedDateTime 含有时区的时间
+     */
+    public static void demoZonedDateTme() {
+        // 当前时刻 + 东八区时区 = 中国时间
+        Instant instant = Instant.now();
+        ZonedDateTime chinaDateTime = instant.atZone(ZoneId.of("UTC+08:00"));
+        // 西八区 相差16小时
+        ZonedDateTime westTime = instant.atZone(ZoneId.of("UTC-08:00"));
+        // 直接打印 打印的格式 date.toString()+'T'+time.toString()+offset.toString()+[zoneOffset]
+        System.out.println("东八区当前时间 " + chinaDateTime.toString());
+        System.out.println("西八区当前时间 " + westTime);
+        // 单独打印日期 时间 时区偏移
+        System.out.println("东八区日期 " + chinaDateTime.toLocalDate().toString());
+        System.out.println("东八区时间 " + chinaDateTime.toLocalTime().toString());
+        System.out.println("东八区时区偏移信息 " + chinaDateTime.getOffset().toString());
+
+        // 定义一个纽约时区时间
+        ZonedDateTime newYorkTime = instant.atZone(ZoneId.of("America/New_York"));
+        System.out.println("纽约时间 " + newYorkTime);
+
+    }
+
     public static void main(String[] args) throws InterruptedException {
-        demoEpochTime();
+        // demoEpochTime();
+        demoZonedDateTme();
     }
 }
