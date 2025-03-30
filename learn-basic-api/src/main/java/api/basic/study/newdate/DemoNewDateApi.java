@@ -29,6 +29,20 @@ public class DemoNewDateApi {
         System.out.println(instant1.plus(Duration.ofSeconds(10)).toEpochMilli());
     }
 
+    public static void demoCreateLocalDateTime() {
+        // 会获取默认时区
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime);
+
+        // 通过Instant创建LocalDateTime
+        LocalDateTime l2 = LocalDateTime.ofInstant(Instant.now(), ZoneId.of("America/New_York"));
+        // 都是通过Instant.now()获取绝对物理时刻
+        // 时区不同，对应的时间不同，但是所表达的却是同一时刻
+        System.out.println(l2);
+        System.out.println(localDateTime.toInstant(ZoneOffset.UTC).toEpochMilli());
+        System.out.println(l2.toInstant(ZoneOffset.UTC).toEpochMilli());
+    }
+
     /**
      * Instant + Zone 信息 ===> ZonedTimeInstant
      * ZonedDateTime 含有时区的时间
@@ -77,7 +91,8 @@ public class DemoNewDateApi {
 
     public static void main(String[] args) throws InterruptedException {
         // demoEpochTime();
+        demoCreateLocalDateTime();
         // demoZonedDateTme();
-        demoZonedDateTimeCalcTime();
+        // demoZonedDateTimeCalcTime();
     }
 }
