@@ -60,8 +60,8 @@ public class DemoExtends {
 
     public static void demo03() {
         Pair<Double> dPair = new Pair<>();
-        Double first = new Double(123.45);
-        Double second = new Double(123.45);
+        Double first = Double.valueOf(123.45);
+        Double second = Double.valueOf(123.45);
         setPair(dPair, first, second);
     }
 
@@ -79,8 +79,8 @@ public class DemoExtends {
 
     public static void demo04() {
         Pair<Number> p = new Pair<>();
-        p.setFirst(new Integer(1));
-        p.setSecond(new Integer(2));
+        p.setFirst(Integer.valueOf(1));
+        p.setSecond(Integer.valueOf(2));
         getPair(p);
     }
 
@@ -92,7 +92,7 @@ public class DemoExtends {
         // Number n1 = new Integer(23);
         // pair.setFirst(n1);
 
-        Integer n2 = new Integer(1);
+        Integer n2 = Integer.valueOf(1);
         pair.setFirst(n2);
         pair.setSecond(2);
         System.out.println(pair.getFirst() + " " + pair.getSecond());
