@@ -10,7 +10,7 @@ public class StaticProxyDemo {
 
 
     private void adviceMethod() {
-        System.out.println("This is advive method!");
+        System.out.println("这是代理执行增强逻辑.");
     }
 
     public void proxyMethod() {
@@ -24,7 +24,7 @@ public class StaticProxyDemo {
         private String name;
 
         public void proxyMethod() {
-            System.out.println("this is object method.");
+            System.out.println("这是代理对象执行.");
         }
 
     }
