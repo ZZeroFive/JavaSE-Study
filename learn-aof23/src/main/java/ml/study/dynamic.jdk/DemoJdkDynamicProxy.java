@@ -1,4 +1,4 @@
-package ml.study.dynamic;
+package ml.study.dynamic.jdk;
 
 import java.lang.reflect.Proxy;
 
