@@ -1,4 +1,4 @@
-package ml.study.dynamic.jdk;
+package ml.study.proxy.dynamic.jdk;
 
 
 /**

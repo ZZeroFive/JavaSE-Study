@@ -1,4 +1,4 @@
-package ml.study.dynamic.jdk;
+package ml.study.proxy.dynamic.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
